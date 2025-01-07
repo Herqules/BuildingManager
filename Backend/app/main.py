@@ -35,12 +35,10 @@ ALLOWED_HEADERS = ["Authorization", "Content-Type"]
 # Replace the existing CORS middleware with this more secure version
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,  # Instead of ["*"]
+    allow_origins=["*"],  # Allows all origins in development
     allow_credentials=True,
-    allow_methods=ALLOWED_METHODS,  # Instead of ["*"]
-    allow_headers=ALLOWED_HEADERS,  # Instead of ["*"]
-    expose_headers=["*"],
-    max_age=600,  # Cache preflight requests for 10 minutes
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Create database tables
